@@ -20,7 +20,7 @@ npm run dev
 - [x] TypeScriptのインストール
 - [x] デモページ
 - [x] ServerlessFrameworkを利用したデプロイ
-- [x] 
+- [x] CSS Framework
 - [ ] テスト環境のセットアップ
 - [ ] 最低限必要なライブラリのインストール
 
