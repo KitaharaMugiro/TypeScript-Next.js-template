@@ -1,33 +1,28 @@
-import * as React from "react";
-import NextApp, { AppContext, Container } from "next/app";
+import React from 'react';
+import Head from 'next/head';
+import { AppProps } from 'next/app';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "shards-ui/dist/css/shards.min.css"
 
-interface Props {
-    pageProps: any;
+export default function MyApp(props: AppProps) {
+    const { Component, pageProps } = props;
+
+    React.useEffect(() => {
+        // Remove the server-side injected CSS.
+        const jssStyles = document.querySelector('#jss-server-side');
+        if (jssStyles) {
+            jssStyles.parentElement!.removeChild(jssStyles);
+        }
+    }, []);
+
+    return (
+        <React.Fragment>
+            <Head>
+                <title>My page</title>
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+            </Head>
+
+            <Component {...pageProps} />
+        </React.Fragment>
+    );
 }
-
-class App extends NextApp<Props> {
-    render() {
-        const { pageProps, Component } = this.props;
-
-        return (
-            <Container>
-                <Component {...pageProps} />
-            </Container>
-        );
-    }
-
-    static async getInitialProps({ Component, ctx }: AppContext) {
-        const componentGetInitialProps = Component.getInitialProps || (() => Promise.resolve());
-
-        const [session, pageProps] = await Promise.all([
-            componentGetInitialProps(ctx),
-        ]);
-
-        return {
-            session,
-            pageProps
-        };
-    }
-}
-
-export default App;

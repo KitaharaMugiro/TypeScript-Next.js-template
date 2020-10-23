@@ -19,7 +19,8 @@ npm run dev
 - [x] Next.jsのインストール & コマンドのセットアップ
 - [x] TypeScriptのインストール
 - [x] デモページ
-- [ ] ServerlessFrameworkを利用したデプロイ
+- [x] ServerlessFrameworkを利用したデプロイ
+- [x] 
 - [ ] テスト環境のセットアップ
 - [ ] 最低限必要なライブラリのインストール
 
@@ -34,3 +35,6 @@ AWS_SECRET_ACCESS_KEY=sshhh
 ```
 
 ② コマンド`serverless`でデプロイする
+
+# React Shardsの追加
+https://designrevision.com/docs/shards-react/getting-started

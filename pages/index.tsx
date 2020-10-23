@@ -1,11 +1,17 @@
-import { NextPage } from 'next';
+import { Button } from "shards-react";
 
-const IndexPage: NextPage<{ userAgent: string }> = ({ userAgent }) => (
-  <h1>Hello world! - useragent: {userAgent}</h1>
-);
+export default () => {
 
-IndexPage.getInitialProps = async ({ req }) => {
-  const userAgent = req ? req.headers['user-agent'] || '' : navigator.userAgent;
-  return { userAgent };
-};
-export default IndexPage;
+  return (
+    <div className="example">
+      <Button>Primary</Button>
+      <Button theme="secondary">Secondary</Button>
+      <Button theme="success">Success</Button>
+      <Button theme="info">Info</Button>
+      <Button theme="warning">Warning</Button>
+      <Button theme="danger">Danger</Button>
+      <Button theme="light">Light</Button>
+      <Button theme="dark">Dark</Button>
+    </div>
+  )
+}
